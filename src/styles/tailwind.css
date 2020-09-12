@@ -1,5 +1,15 @@
 @tailwind base;
 
+body {
+  @apply bg-gray-800;
+  @apply text-gray-300;
+  @apply m-0;
+  @apply font-sans;
+}
+::selection {
+  @apply bg-pink-500;
+  @apply text-white;
+}
 @tailwind components;
 
 @tailwind utilities;
