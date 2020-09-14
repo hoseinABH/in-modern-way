@@ -35,7 +35,7 @@ const Header = () => {
   ];
   return (
     <div className="w-full bg-black ">
-      <div className="w-full  h-1 bg-gradient-to-r from-red-500 via-pink-500 to-blue-500 bg-contain  ease-linear transition fixed top-0"></div>
+      <div className="w-full  h-1 bg-gradient-to-r from-red-500 via-pink-500 to-blue-500 bg-contain  ease-linear transition relative top-0"></div>
       <div className="flex py-4 items-center justify-between relative ">
         <div>
           <h2 className="px-3 text-sm  lg:text-xl  duration-500 font-bold hover:text-red-500">
@@ -96,7 +96,7 @@ const Header = () => {
               onClick={() => {
                 toggleShowInput(true);
               }}
-              className={`fill-current stroke-current cursor-pointer  hidden ${
+              className={`fill-current stroke-current cursor-pointer hover:text-blue-500 duration-500  hidden ${
                 showInput ? '' : 'md:inline-block'
               } h-5 w-5 `}
               xmlns="http://www.w3.org/2000/svg"
