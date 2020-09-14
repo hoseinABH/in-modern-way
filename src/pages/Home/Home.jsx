@@ -59,7 +59,7 @@ const Home = ({
       <Banner />
       <Layout>
         {loading ? (
-          skeleton.map((item, index) => <Skeleton key={index} />)
+          skeleton.map((index) => <Skeleton key={index} />)
         ) : (
           <>
             <Grid title="Now Playing" movies={nowPlay} />
