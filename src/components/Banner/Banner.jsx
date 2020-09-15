@@ -1,10 +1,9 @@
 import React from 'react';
-import banner from '../../assets/1.jpg';
 
-const Banner = () => {
+const Banner = ({ banner }) => {
   return (
     <header
-      className="w-full relative "
+      className="w-full relative"
       style={{
         background: `url(${banner})  no-repeat local center `,
         backgroundSize: 'cover',

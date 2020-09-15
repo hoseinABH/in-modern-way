@@ -3,19 +3,24 @@ import {
   GET_POPULAR_MOVIE,
   GET_TOP_RATED_MOVIE,
   GET_UPCOMING_MOVIE,
+  GET_MOVIE_BY_NAME,
 } from '../types';
 
 const initialState = {
+  moviesByName: [],
   nowPalyingMovies: [],
   popularMovies: [],
   topRatedMovies: [],
   upcomingMovies: [],
-  page: 1,
-  totalPages: 0,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case GET_MOVIE_BY_NAME:
+      return {
+        ...state,
+        moviesByName: action.payload,
+      };
     case GET_NOW_PLAYING_MOVIE:
       return {
         ...state,

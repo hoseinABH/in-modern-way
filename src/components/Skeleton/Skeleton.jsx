@@ -1,12 +1,15 @@
 import React from 'react';
 
-const Skeleton = () => {
-  const skeleton = [1, 2, 3, 4];
-  return (
-    <main className="my-8 animate-pulse ">
-      <div class="h-3  bg-gray-800 rounded  w-1/6"></div>
+const Skeleton = ({ title }) => {
+  const skeleton = title
+    ? [1, 2, 3, 4]
+    : [1, 2, 3, 4, 16, 6, 8, 5, 7, 9, 10, 11, 12, 13, 88, 65];
+  const homeSK = title ? [1, 2, 3, 4] : [1];
+  return homeSK.map((item) => (
+    <main key={item} className="my-8 animate-pulse">
+      {title && <div className="h-3  bg-gray-800 rounded  w-1/6"></div>}
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
-        {skeleton.map((item, index) => (
+        {skeleton.map((index) => (
           <div
             key={index}
             className="w-full max-w-sm mx-auto rounded-md shadow-md   overflow-hidden "
@@ -16,7 +19,7 @@ const Skeleton = () => {
         ))}
       </div>
     </main>
-  );
+  ));
 };
 
 export default Skeleton;

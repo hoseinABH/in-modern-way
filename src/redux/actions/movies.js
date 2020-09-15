@@ -1,11 +1,21 @@
 import { api } from '../../service/movies.service';
 import {
+  GET_MOVIE_BY_NAME,
   GET_NOW_PLAYING_MOVIE,
   GET_POPULAR_MOVIE,
   SET_ERROR,
   GET_TOP_RATED_MOVIE,
   GET_UPCOMING_MOVIE,
 } from '../types';
+
+export const getMoviesByName = (name, page) => async (dispatch) => {
+  const movies = await api(name, page);
+  const { results } = movies.data;
+  dispatch({
+    type: GET_MOVIE_BY_NAME,
+    payload: results,
+  });
+};
 
 export const getNowPlayingMovies = () => async (dispatch) => {
   try {
