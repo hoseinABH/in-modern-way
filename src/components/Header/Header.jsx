@@ -11,30 +11,30 @@ const Header = () => {
     {
       id: 1,
       name: 'Now Playing',
-      url: '/now-playing',
+      url: 'now_playing',
       color: 'text-pink-500',
     },
     {
       id: 2,
       name: 'Popular',
-      url: '/popular',
+      url: 'popular',
       color: 'text-pink-400',
     },
     {
       id: 3,
       name: 'Top Rated',
-      url: '/top-rated',
+      url: 'top_rated',
       color: 'text-purple-400',
     },
     {
       id: 4,
       name: 'Upcoming',
-      url: '/upcoming',
+      url: 'upcoming',
       color: 'text-blue-400',
     },
   ];
   return (
-    <div className="w-full bg-black ">
+    <div className="w-full bg-black fixed z-50 ">
       <div className="w-full  h-1 bg-gradient-to-r from-red-500 via-pink-500 to-blue-500 bg-contain  ease-linear transition relative top-0"></div>
       <div className="flex py-4 items-center justify-between relative ">
         <div>
@@ -74,7 +74,10 @@ const Header = () => {
           >
             {navigationLinks.map((item) => (
               <li key={item.id} className={`hover:${item.color} duration-500`}>
-                <Link to={item.url} onClick={() => setOpen(false)}>
+                <Link
+                  to={`/category/${item.url}`}
+                  onClick={() => setOpen(false)}
+                >
                   {item.name}
                 </Link>
               </li>

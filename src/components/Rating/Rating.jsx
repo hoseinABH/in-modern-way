@@ -8,7 +8,7 @@ const Rating = ({ rating, totalStars, className }) => {
   useEffect(() => {
     setNumberStars([...Array(totalStars).keys()].map((i) => i + 1));
     let percentage;
-    if (rating <= 5) {
+    if (rating < 5) {
       percentage = (rating / 5) * 100;
     } else {
       percentage = (rating / 10) * 100;
