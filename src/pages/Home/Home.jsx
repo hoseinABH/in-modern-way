@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Banner from '../../components/Banner/Banner';
 import Grid from '../../components/Grid/Grid';
 import Layout from '../../components/Layout/Layout';
+import banner from '../../assets/1.jpg';
+
 import { connect } from 'react-redux';
 import {
   getNowPlayingMovies,
@@ -10,6 +12,7 @@ import {
   getUpcomingMovies,
 } from '../../redux/actions/movies';
 import Skeleton from '../../components/Skeleton/Skeleton';
+import LandingSkeleton from '../../components/Skeleton/LandingSkeleton';
 const Home = ({
   getNowPlayingMovies,
   getPopularMovies,
@@ -25,6 +28,7 @@ const Home = ({
     getPopularMovies();
     getTopRatedMovies();
     getUpcomingMovies();
+    // window.scrollTo(0, 0);
   }, [
     getNowPlayingMovies,
     getPopularMovies,
@@ -47,7 +51,6 @@ const Home = ({
   const upcom = upcomingMovies
     .sort(() => Math.random() - Math.random())
     .slice(0, 4);
-  const skeleton = [1, 2, 3, 4];
 
   const loading =
     upcom.length < 1 ||
@@ -56,10 +59,10 @@ const Home = ({
     toprate.length < 1;
   return (
     <>
-      <Banner />
+      {loading ? <LandingSkeleton /> : <Banner banner={banner} />}
       <Layout>
         {loading ? (
-          skeleton.map((index) => <Skeleton key={index} />)
+          <Skeleton title={true} />
         ) : (
           <>
             <Grid title="Now Playing" movies={nowPlay} />
